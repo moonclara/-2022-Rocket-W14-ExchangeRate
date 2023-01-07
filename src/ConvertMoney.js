@@ -16,10 +16,10 @@ function ConvertMoney() {
   const [wallet, setWallet] = useState(5000);
 
   // 輸入兌換的台幣，因為會變動，所以使用 useState
-  const [inputMoney, setInputMoney] = useState('');
+  const [inputMoney, setInputMoney] = useState("");
 
   // 將台幣轉換成其他幣值，因為會變動，所以使用 useState
-  const [convert, setCovert] = useState('');
+  const [convert, setCovert] = useState("");
 
   // 新增幣種，因為會變動，所以使用 useState
   const [newRate, setNewRate] = useState([{ name: "", rate: "" }]);
@@ -39,10 +39,13 @@ function ConvertMoney() {
 
   // 新增幣種 button
   const handleClickNewRate = () => {
-    return (
-      setExchangeList([...exchangeList, newRate]),
-      setNewRate({ name: "", rate: "" })
-    );
+    if (newRate.name && newRate.rate && newRate.rate !== "0") {
+      return (
+        setExchangeList([...exchangeList, newRate]),
+        setNewRate({ name: "", rate: "" })
+      );
+    }
+    alert("請輸入正確的幣種名稱或匯率(不得為0)");
   };
 
   // 輸入台幣的 onChange
@@ -52,7 +55,11 @@ function ConvertMoney() {
 
   // 輸入的台幣 onClick
   const handleClickInputMoney = () => {
-    if (inputMoney <= 0) return;
+    if (inputMoney <= 0) {
+      alert("請輸入大於0的金額");
+      return;
+    }
+
     return setCovert(inputMoney);
   };
 
@@ -60,7 +67,7 @@ function ConvertMoney() {
   const handleExchangeRates = exchangeList.map((item, i) => {
     return (
       <li key={i}>
-        {item.name}：{Math.round(item.rate * inputMoney)}元
+        {item.name}：{Math.round(item.rate * convert)}元
         <input
           type="button"
           value="兌換"
@@ -74,7 +81,10 @@ function ConvertMoney() {
 
   // 兌換 button
   const handleClickExchange = (item) => {
-    if (wallet < inputMoney) return;
+    if (wallet < inputMoney) {
+      alert("您的錢包餘額不足");
+      return;
+    }
     setWallet(wallet - inputMoney);
     const { name, rate } = item;
     setRecord([...record, { name, rate, convert }]);
