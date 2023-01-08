@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/2022-Rocket-W14-ExchangeRate/static/css/main.40d39393.css",
-    "main.js": "/2022-Rocket-W14-ExchangeRate/static/js/main.fdd5e530.js",
+    "main.css": "/2022-Rocket-W14-ExchangeRate/static/css/main.35f00e8b.css",
+    "main.js": "/2022-Rocket-W14-ExchangeRate/static/js/main.ed81c614.js",
     "index.html": "/2022-Rocket-W14-ExchangeRate/index.html",
-    "main.40d39393.css.map": "/2022-Rocket-W14-ExchangeRate/static/css/main.40d39393.css.map",
-    "main.fdd5e530.js.map": "/2022-Rocket-W14-ExchangeRate/static/js/main.fdd5e530.js.map"
+    "main.35f00e8b.css.map": "/2022-Rocket-W14-ExchangeRate/static/css/main.35f00e8b.css.map",
+    "main.ed81c614.js.map": "/2022-Rocket-W14-ExchangeRate/static/js/main.ed81c614.js.map"
   },
   "entrypoints": [
-    "static/css/main.40d39393.css",
-    "static/js/main.fdd5e530.js"
+    "static/css/main.35f00e8b.css",
+    "static/js/main.ed81c614.js"
   ]
 }
