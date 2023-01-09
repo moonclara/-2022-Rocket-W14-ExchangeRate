@@ -39,13 +39,26 @@ function ConvertMoney() {
 
   // 新增幣種 button
   const handleClickNewRate = () => {
-    if (newRate.name && newRate.rate && newRate.rate !== "0") {
+    const checkName = newRate.name === undefined;
+    const checkRate = newRate.rate === undefined;
+    const checkRateNum = newRate.rate !== "0";
+    if (checkName && checkRate && checkRateNum) {
+      alert("請輸入正確的幣種名稱或匯率(不得為0)");
+    } else {
       return (
         setExchangeList([...exchangeList, newRate]),
         setNewRate({ name: "", rate: "" })
       );
     }
-    alert("請輸入正確的幣種名稱或匯率(不得為0)");
+
+    // 此方法可讀性較低
+    // if (newRate.name && newRate.rate && newRate.rate !== "0") {
+    //   return (
+    //     setExchangeList([...exchangeList, newRate]),
+    //     setNewRate({ name: "", rate: "" })
+    //   );
+    // }
+    // alert("請輸入正確的幣種名稱或匯率(不得為0)");
   };
 
   // 輸入台幣的 onChange
